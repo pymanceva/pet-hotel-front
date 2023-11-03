@@ -42,6 +42,7 @@
     "@typescript-eslint/no-unused-vars": "warn",
     "react/no-danger": "warn",
     "react/react-in-jsx-scope": "off",
+    "linebreak-style": ["error", "windows"],
     "@tanstack/query/exhaustive-deps": "error",
     "@tanstack/query/stable-query-client": "error"
   }
