@@ -1,4 +1,5 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 import { AppShell } from '@mantine/core';
 import { Header } from '@/widgets/header';
 
@@ -15,7 +16,12 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 
       <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
 
-      <AppShell.Main>{children}</AppShell.Main>
+      <AppShell.Main>
+        {' '}
+        <Suspense>
+          <Outlet />
+        </Suspense>
+      </AppShell.Main>
     </AppShell>
   );
 };

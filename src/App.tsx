@@ -1,12 +1,12 @@
 import { useState } from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { MantineProvider } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-import Layout from './shared/ui/layout';
-import RoomPage from './pages/Rooms/ui/RoomPage';
+import { routes } from './pages/routes';
 
 function App() {
+  const router = createBrowserRouter(routes);
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -21,9 +21,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <MantineProvider>
         <ModalsProvider>
-          <Layout>
-            <RoomPage />
-          </Layout>
+          <RouterProvider router={router} />
         </ModalsProvider>
       </MantineProvider>
     </QueryClientProvider>
