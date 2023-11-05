@@ -4,6 +4,7 @@ import { ModalsProvider } from '@mantine/modals';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import Layout from './shared/ui/layout';
+import RoomPage from './pages/Rooms/ui/RoomPage';
 
 function App() {
   const [queryClient] = useState(
@@ -20,7 +21,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <MantineProvider>
         <ModalsProvider>
-          <Layout>main content</Layout>
+          <Layout>
+            <RoomPage />
+          </Layout>
         </ModalsProvider>
       </MantineProvider>
     </QueryClientProvider>
