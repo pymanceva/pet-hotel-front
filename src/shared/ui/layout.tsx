@@ -1,9 +1,9 @@
-import { FC, PropsWithChildren, Suspense } from 'react';
+import { FC, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { AppShell } from '@mantine/core';
+import { AppShell, Loader } from '@mantine/core';
 import { Header } from '@/widgets/header';
 
-const Layout: FC<PropsWithChildren> = ({ children }) => {
+const Layout: FC = () => {
   return (
     <AppShell
       header={{ height: 60 }}
@@ -18,7 +18,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 
       <AppShell.Main>
         {' '}
-        <Suspense>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </AppShell.Main>

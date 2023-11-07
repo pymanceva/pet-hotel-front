@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { MantineProvider } from '@mantine/core';
-import { ModalsProvider } from '@mantine/modals';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Cookie from 'js-cookie';
 import { routes } from './pages/routes';
 
 function App() {
@@ -17,12 +17,11 @@ function App() {
         },
       }),
   );
+  Cookie.set('X-PetHotel-User-Id', '1');
   return (
     <QueryClientProvider client={queryClient}>
       <MantineProvider>
-        <ModalsProvider>
-          <RouterProvider router={router} />
-        </ModalsProvider>
+        <RouterProvider router={router} />
       </MantineProvider>
     </QueryClientProvider>
   );
