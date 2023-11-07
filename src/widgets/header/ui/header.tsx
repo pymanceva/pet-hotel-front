@@ -1,39 +1,19 @@
-import {
-  Button,
-  Flex,
-  Group,
-  Image,
-  Modal,
-  Select,
-  Space,
-  TextInput,
-} from '@mantine/core';
-import { modals } from '@mantine/modals';
-import { useForm } from '@mantine/form';
 import { FC } from 'react';
-import { ERoomType } from '@/shared/types/request';
+import { Button, Flex, Group, Image, Modal } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import { FormForRoom } from '@/features/create-room/ui/form-for-room';
 
 export const Header: FC = () => {
-  const form = useForm({
-    initialValues: {
-      type: ERoomType.BABY_SIZE,
-      number: '',
-      isAvailable: false,
-      price: 0,
-      size: 0,
-    },
-  });
+  const [opened, { open, close }] = useDisclosure(false);
 
-  const handleButtonClick = () => {
-    modals.openConfirmModal({
-      title: 'Создание комнаты',
-    });
-  };
   return (
     <Group h="100%" w="100%" justify="space-between" px="md">
+      <Modal opened={opened} onClose={close} title="Создание комнаты">
+        <FormForRoom onClose={close} />
+      </Modal>
       <Image alt="LOGO" />
       <Flex w="200px" justify="space-between" align="center">
-        <Button onClick={handleButtonClick}>Создать комнату</Button>
+        <Button onClick={open}>Создать комнату</Button>
       </Flex>
     </Group>
   );
