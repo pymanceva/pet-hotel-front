@@ -15,3 +15,21 @@ export interface IRequestForRoomCreation {
   type: ERoomType;
   isAvailable?: boolean;
 }
+
+export interface IRequestForRoomUpdate {
+  id: number;
+  number: string;
+  price?: number;
+  size?: number;
+  type: ERoomType;
+  isAvailable?: boolean;
+}
+
+export interface IRoom {
+  id: number;
+  number: string;
+  type: ERoomType;
+  size: number;
+  isAvailable: boolean;
+  price: number;
+}
