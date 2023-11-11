@@ -29,7 +29,7 @@ const RoomItem: React.FC<IRequestForRoomCreation> = ({
       }}
       onClick={() => handleClick()}
     >
-      <Title order={5}>Room №{number}</Title>
+      <Title order={5}>{number}</Title>
       <Grid gutter={{ base: 5, xs: 'md', md: 'xl', xl: 50 }}>
         <Grid.Col span={6}>
           <Text size="md">Price: {price}</Text>

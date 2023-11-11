@@ -26,7 +26,7 @@ const RoomPage = () => {
         flexDirection: 'column',
       }}
     >
-      <Flex>
+      <Flex justify="space-between">
         <RoomItem
           number={data.number}
           type={data.type}
@@ -42,11 +42,7 @@ const RoomPage = () => {
           title="Редактировать комнату"
           withCloseButton={false}
         >
-          <FormForRoom
-            isEdit
-            onClose={close}
-            data={{ ...data, isAvailable: data.isAvailable }}
-          />
+          <FormForRoom isEdit onClose={close} data={{ ...data }} />
         </Modal>
       </Flex>
     </Box>

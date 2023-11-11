@@ -13,22 +13,25 @@ import {
 import {
   ERoomType,
   IRequestForRoomCreation,
+  IRequestForRoomUpdate,
 } from '../../../../shared/types/request';
 import {
   isAvailableSelectItems,
   roomTypeSelectItems,
 } from '../../../../shared/const/const';
 import { useCreateRoom } from '../api/mutations';
+import { useUpdateRoom } from '../../update-room/api';
 
 interface IProps {
   isEdit?: boolean;
-  data?: IRequestForRoomCreation;
+  data?: IRequestForRoomUpdate;
   onClose?: () => void;
 }
 
 export const FormForRoom: FC<IProps> = ({ isEdit = false, data, onClose }) => {
   const [isDrawerOpened, setIsDrawerOpened] = useState<boolean>(false);
   const { mutateAsync: handleRoomCreation } = useCreateRoom();
+  const { mutateAsync: handleUpdateRoom } = useUpdateRoom();
   const form = useForm<IRequestForRoomCreation>({
     initialValues: {
       number: '',
@@ -66,13 +69,21 @@ export const FormForRoom: FC<IProps> = ({ isEdit = false, data, onClose }) => {
   const handleDrawerCancelClick = () => {
     setIsDrawerOpened(false);
   };
-  const handleCreateClick = async () => {
+  const handleCreate = async () => {
     await handleRoomCreation?.(form.values);
+    onClose?.();
+  };
+  const handleUpdate = async () => {
+    if (!data) {
+      return;
+    }
+
+    await handleUpdateRoom?.(form.values as IRequestForRoomUpdate);
     onClose?.();
   };
 
   return (
-    <form onSubmit={form.onSubmit(handleCreateClick)}>
+    <form onSubmit={form.onSubmit(isEdit ? handleUpdate : handleCreate)}>
       <TextInput
         placeholder="Введите название номера..."
         {...form.getInputProps('number')}
@@ -106,7 +117,8 @@ export const FormForRoom: FC<IProps> = ({ isEdit = false, data, onClose }) => {
         <Button color="red" onClick={handleCancelButtonClick}>
           Отмена
         </Button>
-        <Button type="submit">{isEdit ? 'Изменить' : 'Создать'}</Button>
+        {!isEdit && <Button type="submit">Создать</Button>}
+        {isEdit && <Button type="submit">Изменить</Button>}
       </Flex>
       <Drawer
         opened={isDrawerOpened}
