@@ -1,25 +1,16 @@
-import { useMemo } from 'react';
 import { Grid, Text } from '@mantine/core';
-import { RoomItem } from '@/entities/room';
-import { useGetAllRooms } from '../api/queries';
+import Columns from './Columns';
+import { useGetAllRooms } from '@/pages/RoomList/api/queries';
+import { IRequestForRoomCreation } from '@/shared/types/request';
 
 const RoomGrid: React.FC = () => {
-  const { data, isLoading } = useGetAllRooms();
-  const items = useMemo(
-    () =>
-      data?.map((item) => (
-        <Grid.Col key={item.id} span={4}>
-          <RoomItem {...item} />
-        </Grid.Col>
-      )),
-    [],
-  );
+  const { data } = useGetAllRooms();
   return (
     <Grid gutter={{ base: 5, xs: 'md', md: 'xl', xl: 50 }}>
-      {items?.length ? (
-        items
+      {data ? (
+        <Columns rooms={data as IRequestForRoomCreation[]} />
       ) : (
-        <Text size="lg">Вы пока еще не добавили никаких комнат</Text>
+        <Text> Список комнат пуст</Text>
       )}
     </Grid>
   );

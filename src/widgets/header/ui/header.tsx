@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Button, Flex, Group, Image, Modal } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { FormForRoom } from '@/features/create-room/ui/form-for-room';
+import { FormForRoom } from '@/features/rooms/create-room/ui/form-for-room';
 
 export const Header: FC = () => {
   const [opened, { open, close }] = useDisclosure(false);

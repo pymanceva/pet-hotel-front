@@ -13,11 +13,11 @@ import {
 import {
   ERoomType,
   IRequestForRoomCreation,
-} from '../../../shared/types/request';
+} from '../../../../shared/types/request';
 import {
   isAvailableSelectItems,
   roomTypeSelectItems,
-} from '../../../shared/const/const';
+} from '../../../../shared/const/const';
 import { useCreateRoom } from '../api/mutations';
 
 interface IProps {
@@ -44,6 +44,7 @@ export const FormForRoom: FC<IProps> = ({ isEdit = false, data, onClose }) => {
       size: (value) => (value ? undefined : 'Введите размер'),
     },
   });
+
   useEffect(() => {
     if (isEdit && data) {
       form.setValues(data);

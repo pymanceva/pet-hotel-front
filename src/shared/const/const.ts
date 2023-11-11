@@ -2,8 +2,8 @@ import { ComboboxItem } from '@mantine/core';
 import { ERoomType } from '../types/request';
 
 export const isAvailableSelectItems: ComboboxItem[] = [
-  { label: 'Доступна', value: 'yes' },
-  { label: 'Недоступна', value: 'no' },
+  { label: 'Доступна', value: 'true' },
+  { label: 'Недоступна', value: 'false' },
 ];
 
 export const roomTypeSelectItems: ComboboxItem[] = [
