@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useGetRoomById } from '../api/queries';
 import { RoomItem } from '@/entities/room';
 import { ErrorPage } from '@/pages/Error';
-import { FormForRoom } from '@/features/create-room/ui/form-for-room';
+import { FormForRoom } from '@/features/rooms/create-room/ui/form-for-room';
 
 const RoomPage = () => {
   const { id } = useParams();

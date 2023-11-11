@@ -1,10 +1,10 @@
 export enum ERoomType {
-  BABY_SIZE = 'baby_size',
-  STANDARD = 'standard',
-  LUX = 'lux',
-  CATS = 'cats',
-  EXOTS = 'exots',
-  LIKE_HOME = 'like_home',
+  BABY_SIZE = 'BABY_SIZE',
+  STANDARD = 'STANDART',
+  LUX = 'LUX',
+  CATS = 'CATS',
+  EXOTS = 'EXOTS',
+  LIKE_HOME = 'LIKE_HOME',
 }
 
 export interface IRequestForRoomCreation {
