@@ -44,4 +44,16 @@ export default class RoomService {
       }
     }
   }
+
+  static async deleteRoom(id?: string) {
+    try {
+      await api.delete(`rooms/${id}`);
+    } catch (err) {
+      if (err instanceof HTTPError) {
+        throw new Error(err.message);
+      } else {
+        throw new Error('Failed to delete room');
+      }
+    }
+  }
 }
