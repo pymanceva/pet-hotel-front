@@ -6,6 +6,7 @@ import { RoomItem } from '@/entities/room';
 import { ErrorPage } from '@/pages/Error';
 import { FormForRoom } from '@/features/rooms/create-room/ui/form-for-room';
 import { useDeleteRoom } from '@/features/rooms/delete-room/mutations';
+import UpdateRoomForm from '@/features/rooms/update-room/ui/UpdateRoomForm';
 
 const RoomPage = () => {
   const { id } = useParams();
@@ -56,7 +57,7 @@ const RoomPage = () => {
           title="Редактировать комнату"
           withCloseButton={false}
         >
-          <FormForRoom isEdit onClose={close} data={{ ...data }} />
+          <UpdateRoomForm onClose={close} data={{ ...data }} />
         </Modal>
         <Modal
           onClose={closeDeleteModal}
