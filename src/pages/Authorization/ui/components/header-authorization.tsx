@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Flex, Image, Text, Title } from '@mantine/core';
-import logo from '@/assets/petlogo.svg';
+import logo from '@/app/assets/petlogo.svg';
 
 const HeaderAuthorization: FC = () => {
   return (

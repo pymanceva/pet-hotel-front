@@ -5,10 +5,11 @@ import Cookies from 'js-cookie';
 import { EMutationKeys as EAuthenticationMutationKeys } from '../keys/keys';
 import AuthorizationService from '../authorization.service';
 import { IAuthorization } from '../../types/types';
-import { useUserStore } from '@/entities/user';
+
 import { callNotification } from '@/shared/helper/showNotification';
 import { FailIcon } from '@/shared/ui/icons/FailIcon';
 import { COOKIE_KEY_ID } from '@/shared/const/const';
+import { useUserStore } from '@/app/roles';
 
 export const useAuthorization = () => {
   const navigate = useNavigate();
