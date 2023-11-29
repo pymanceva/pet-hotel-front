@@ -3,6 +3,7 @@ import { RoomListPage } from './RoomList';
 import Layout from '@/shared/ui/layout';
 import { ErrorPage } from './Error';
 import { RoomPage } from './Room';
+import { AuthorizationPage } from './Authorization';
 
 export const routes: RouteObject[] = [
   {
@@ -15,6 +16,10 @@ export const routes: RouteObject[] = [
         element: <RoomListPage />,
       },
     ],
+  },
+  {
+    path: '/authorization',
+    element: <AuthorizationPage />,
   },
   {
     path: '/',
