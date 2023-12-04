@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { useGetRoomById } from '../api/queries';
 import { RoomItem } from '@/entities/room';
 import { ErrorPage } from '@/pages/Error';
-import { FormForRoom } from '@/features/rooms/create-room/ui/form-for-room';
 import { useDeleteRoom } from '@/features/rooms/delete-room/mutations';
 import UpdateRoomForm from '@/features/rooms/update-room/ui/UpdateRoomForm';
 

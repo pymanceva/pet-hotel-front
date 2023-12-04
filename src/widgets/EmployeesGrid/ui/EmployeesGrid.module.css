@@ -1,0 +1,26 @@
+.innerContent {
+  padding: 20px 24px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09);
+  margin-bottom: 100px;
+}
+
+.inner {
+  padding: 12px 24px;
+  margin-bottom: 100px;
+}
+
+.root {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.content {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-bottom: 100px;
+}
+
+.col {
+  border-bottom: 2px solid #f0f0f0;
+}

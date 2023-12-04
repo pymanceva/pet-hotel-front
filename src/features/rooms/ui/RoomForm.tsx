@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
 import { Button, Flex, Select, Space, TextInput } from '@mantine/core';
+import { UseFormReturnType } from '@mantine/form';
 import {
   isAvailableSelectItems,
   roomTypeSelectItems,
 } from '@/shared/const/const';
 import RoomDrawer from './Drawer';
-import { UseFormReturnType } from '@mantine/form';
 import {
   IRequestForRoomCreation,
   IRequestForRoomUpdate,

@@ -1,8 +1,8 @@
+import { FC, useEffect } from 'react';
 import { IRequestForRoomUpdate } from '@/shared/types/request';
 import { useUpdateRoom } from '../api';
 import { useRoomForm } from '../../hooks/useRoomForm';
-import { FC, useEffect } from 'react';
-import RoomForm from '../../ui/RoomForm';
+import { RoomForm } from '../../ui/RoomForm';
 
 interface UpdateRoomFormProps {
   data?: IRequestForRoomUpdate;
