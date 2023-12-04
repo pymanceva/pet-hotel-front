@@ -3,5 +3,32 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --light-blue: #1170ff;
+  --default-blue: #2422f1;
+  --dark-blue: #0145ab;
+
+  --basic-grey: #d0cfcf;
+  --mid-grey: #757575;
+  --dark-grey: #585858;
+
+  /* Primary button */
+  --button-primary-default-text: white;
+  --button-primary-default: var(--light-blue);
+  --button-primary-pressed: var(--default-blue);
+  --button-primary-hover: var(--dark-blue);
+  --button-primary-disabled-text: var(--mid-grey);
+  --button-primary-disabled: var(--basic-grey);
+
+  /* Secondary button */
+  --button-secondary-bg: white;
+  --button-secondary-default-text: black;
+  --button-secondary-default-border: var(--dark-grey);
+  --button-secondary-pressed: var(--default-blue);
+  --button-secondary-hover: var(--dark-grey);
+  --button-secondary-disabled: var(--basic-grey);
 }

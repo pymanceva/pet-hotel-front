@@ -4,6 +4,7 @@ import Layout from '@/shared/ui/layout';
 import { ErrorPage } from './Error';
 import { RoomPage } from './Room';
 import { AuthorizationPage } from './Authorization';
+import { EmployeePage } from './Employees';
 
 export const routes: RouteObject[] = [
   {
@@ -29,6 +30,10 @@ export const routes: RouteObject[] = [
       {
         path: 'main',
         element: <RoomListPage />,
+      },
+      {
+        path: 'employee',
+        element: <EmployeePage />,
       },
       {
         path: 'room/:id',
