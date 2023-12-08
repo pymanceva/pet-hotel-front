@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useCreateRoom } from '../api/mutations';
 import { useRoomForm } from '../../hooks/useRoomForm';
-import RoomForm from '../../ui/RoomForm';
+import { RoomForm } from '../../ui/RoomForm';
 
 interface CreateRoomFormProps {
   onClose?: () => void;
