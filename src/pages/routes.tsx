@@ -40,6 +40,10 @@ export const routes: RouteObject[] = [
         element: <RoomPage />,
       },
       {
+        path: 'rooms',
+        element: <RoomListPage />,
+      },
+      {
         path: '*',
         element: <Navigate to="/" />,
       },
