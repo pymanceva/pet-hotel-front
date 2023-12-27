@@ -1,0 +1,4 @@
+export enum EmployeeQueryKeys {
+  GET_ALL_EMPLOYEE = 'GET_ALL_EMPLOYEE',
+  GET_SINGLE_EMPLOYEE = 'GET_SINGLE_EMPLOYEE',
+}

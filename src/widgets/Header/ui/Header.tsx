@@ -3,7 +3,7 @@ import { Container, Group, Image, Text } from '@mantine/core';
 import logo from '@/app/assets/petlogo.svg';
 import { Button, ButtonIcon } from '@/shared/components/Buttons';
 import { ButtonSize } from '@/shared/components/Buttons/Button/lib/sizeControl';
-import UserIcon from '@/shared/ui/icons/UserIcon';
+import { UserIcon } from '@/shared/ui/icons/UserIcon';
 
 export const Header: FC = () => {
   return (

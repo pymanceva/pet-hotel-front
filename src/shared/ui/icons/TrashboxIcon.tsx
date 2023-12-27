@@ -1,4 +1,4 @@
-const TrashboxIcon = () => {
+export const TrashboxIcon = () => {
   return (
     <svg
       width="32"
@@ -27,5 +27,3 @@ const TrashboxIcon = () => {
     </svg>
   );
 };
-
-export default TrashboxIcon;
