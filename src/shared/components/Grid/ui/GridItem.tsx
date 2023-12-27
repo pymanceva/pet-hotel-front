@@ -1,7 +1,7 @@
 import { Grid, Group, Title } from '@mantine/core';
 import { ButtonIcon } from '@/shared/components/Buttons';
 import { EditIcon } from '@/shared/ui/icons/EditIcon';
-import TrashboxIcon from '@/shared/ui/icons/TrashboxIcon';
+import { TrashboxIcon } from '@/shared/ui/icons/TrashboxIcon';
 
 interface ItemProps {
   firstColText: string;

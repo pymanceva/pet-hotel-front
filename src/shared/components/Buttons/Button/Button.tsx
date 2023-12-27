@@ -1,12 +1,12 @@
-import React, { CSSProperties, forwardRef } from 'react';
+import React, { ButtonHTMLAttributes, CSSProperties, forwardRef } from 'react';
 import { Button as MTButton } from '@mantine/core';
 import styles from './Button.module.css';
 import { ButtonSize, sizeControl } from './lib/sizeControl';
 import { ButtonVariant, variantControl } from './lib/variantControl';
 
-interface ButtonProps {
-  handleClick: () => void;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  handleClick?: () => void;
   size?: ButtonSize;
   variant?: ButtonVariant;
   btnStyles?: CSSProperties;
