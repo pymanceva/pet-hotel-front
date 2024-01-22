@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { Flex } from '@mantine/core';
 import Grid from '@/shared/components/Grid/ui/Grid';
 import { GridHeader } from '@/shared/components/Grid/ui/GridHeader';
-import Client from './Client';
 import { Person } from '@/pages/Client/model/types';
+import Client from './Client';
 
 interface IProps {
   data: Person[];
