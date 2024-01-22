@@ -42,6 +42,7 @@ export const AuthorizationForm: FC = () => {
           }}
           {...form.getInputProps('email')}
         />
+
         <PasswordInput
           placeholder="Пароль"
           label="Пароль"

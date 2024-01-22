@@ -2,17 +2,22 @@ import { Flex, Title } from '@mantine/core';
 import { Button } from '../../../shared/components/Buttons';
 import { PlusIcon } from '@/shared/ui/icons/PlusIcon';
 import { ButtonSize } from '../../../shared/components/Buttons/Button/lib/sizeControl';
+import { ButtonVariant } from '@/shared/components/Buttons/Button/lib/variantControl';
 
 interface ContentHeaderProps {
   handleClick: () => void;
   contentTitle: string;
   actionText: string;
+  buttonVariant?: ButtonVariant;
+  colorIcon?: string;
 }
 
 const ContentHeader: React.FC<ContentHeaderProps> = ({
   handleClick,
   contentTitle,
   actionText,
+  buttonVariant,
+  colorIcon,
 }) => {
   return (
     <Flex
@@ -30,8 +35,9 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({
       </Title>
       <Button
         handleClick={handleClick}
-        icon={<PlusIcon />}
+        icon={<PlusIcon color={colorIcon} />}
         size={ButtonSize.small}
+        variant={buttonVariant}
       >
         {actionText}
       </Button>
