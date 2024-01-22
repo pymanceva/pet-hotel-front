@@ -3,17 +3,34 @@ import { Flex, Text } from '@mantine/core';
 import Card from '@/shared/components/Card/Card';
 import { formatPhoneNumber } from '@/shared/helper/formatPhoneNumber';
 import { Animal, Person } from '@/pages/Client/model/types';
+import { PetInformationCard } from '@/features/Client/ui/PetInformationCard/ui/PetInformationCard';
 
 interface ClientProps {
   client: Person;
+  navigateToClientPage: () => void;
 }
 
-interface AnimalInfo {
+export interface AnimalInfo {
   label: string;
   value: keyof Animal;
 }
 
-const Client: React.FC<ClientProps> = ({ client }) => {
+export const animalInfo: AnimalInfo[] = [
+  {
+    label: 'Имя питомца',
+    value: 'name',
+  },
+  {
+    label: 'Тип',
+    value: 'type',
+  },
+  {
+    label: 'Подтип',
+    value: 'subtype',
+  },
+];
+
+const Client: React.FC<ClientProps> = ({ client, navigateToClientPage }) => {
   const { animals } = client;
 
   const cardInfo = [
@@ -31,24 +48,9 @@ const Client: React.FC<ClientProps> = ({ client }) => {
     },
   ];
 
-  const animalInfo: AnimalInfo[] = [
-    {
-      label: 'Имя питомца',
-      value: 'name',
-    },
-    {
-      label: 'Тип',
-      value: 'type',
-    },
-    {
-      label: 'Подтип',
-      value: 'subtype',
-    },
-  ];
-
   return (
     <Flex gap="12px" justify="column">
-      <Card mb="lg" radius="lg" ml="lg" isGray>
+      <Card mb="lg" radius="lg" ml="lg" isGray onClick={navigateToClientPage}>
         {cardInfo.map((info) => (
           <Flex direction="column" mb="12px">
             <Text size="sm" c="gray">
@@ -58,19 +60,12 @@ const Client: React.FC<ClientProps> = ({ client }) => {
           </Flex>
         ))}
       </Card>
-      {animals.length &&
-        animals.map((animal) => (
-          <Card mb="lg" radius="lg" ml="lg">
-            {animalInfo.map((info) => (
-              <Flex direction="column" mb="12px">
-                <Text size="sm" c="gray">
-                  {info.label}
-                </Text>
-                <Text>{animal[info.value]}</Text>
-              </Flex>
-            ))}
-          </Card>
-        ))}
+      {animals.length && (
+        <PetInformationCard
+          animalInfo={animalInfo}
+          animals={animals.slice(0, 3)}
+        />
+      )}
     </Flex>
   );
 };

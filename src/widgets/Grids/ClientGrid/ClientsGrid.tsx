@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Flex } from '@mantine/core';
 import Grid from '@/shared/components/Grid/ui/Grid';
 import { GridHeader } from '@/shared/components/Grid/ui/GridHeader';
@@ -10,6 +11,7 @@ interface IProps {
 
 export const ClientsGrid = (props: IProps) => {
   const { data } = props;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -21,7 +23,13 @@ export const ClientsGrid = (props: IProps) => {
       <Grid>
         <Flex direction="column">
           {data.map((client) => {
-            return <Client key={client.id} client={client} />;
+            return (
+              <Client
+                navigateToClientPage={() => navigate(`/client/${client.id}`)}
+                key={client.id}
+                client={client}
+              />
+            );
           })}
         </Flex>
       </Grid>

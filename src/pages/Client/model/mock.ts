@@ -18,6 +18,26 @@ export function fetchData() {
           type: 'Dog',
           subtype: 'Golden Retriever',
         },
+        {
+          name: 'Venus',
+          type: 'Dog',
+          subtype: 'Golden Retriever',
+        },
+        {
+          name: 'Venus',
+          type: 'Dog',
+          subtype: 'Golden Retriever',
+        },
+        {
+          name: 'Venus',
+          type: 'Dog',
+          subtype: 'Golden Retriever',
+        },
+        {
+          name: 'Venus',
+          type: 'Dog',
+          subtype: 'Golden Retriever',
+        },
       ],
     },
     {
