@@ -3,7 +3,7 @@ import styles from './Grid.module.css';
 
 interface GridHeaderProps {
   firstColTitle: string;
-  secondColTitle: string;
+  secondColTitle?: string;
 }
 
 export const GridHeader: React.FC<GridHeaderProps> = ({

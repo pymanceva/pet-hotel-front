@@ -2,12 +2,11 @@ import React, { CSSProperties, useState } from 'react';
 import { useForm } from '@mantine/form';
 import { IMaskInput } from 'react-imask';
 import { Modal, Button, TextInput, Flex, Input } from '@mantine/core';
-import { FormData, Step } from '../../config/types';
-
+import { FormData, Step } from '@/features/Client/config/types';
 import {
   INITIAL_VALUES_FOR_MULTI_STEP_FORM_NEW_CLIENT,
   validateNewClientData,
-} from '../../config/config';
+} from '@/features/Client/config/config';
 
 interface MultiStepModalProps {
   isOpen: boolean;
@@ -87,11 +86,6 @@ export const MultiStepModal: React.FC<MultiStepModalProps> = ({
                 ) : (
                   <TextInput
                     placeholder={label}
-                    styles={{
-                      error: {
-                        textAlign: 'center',
-                      },
-                    }}
                     radius="xl"
                     mb="24px"
                     {...form.getInputProps(name)}

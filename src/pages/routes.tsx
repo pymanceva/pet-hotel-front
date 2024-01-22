@@ -5,7 +5,8 @@ import { ErrorPage } from './Error';
 import { RoomPage } from './Room';
 import { AuthorizationPage } from './Authorization';
 import { EmployeePage } from './Employees';
-import { ClientPage } from './Client';
+import { ClientsPage } from './Client';
+import { ClientInformationPage } from './ClientInformation';
 
 export const routes: RouteObject[] = [
   {
@@ -44,7 +45,8 @@ export const routes: RouteObject[] = [
         path: 'rooms',
         element: <RoomListPage />,
       },
-      { path: 'client', element: <ClientPage /> },
+      { path: 'client', element: <ClientsPage /> },
+      { path: 'client/:clientId', element: <ClientInformationPage /> },
       {
         path: '*',
         element: <Navigate to="/" />,

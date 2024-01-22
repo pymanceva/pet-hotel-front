@@ -19,7 +19,7 @@ import { MultiStepModal } from '@/features/Client';
 import { Person } from '../model/types';
 import { fetchData } from '../model/mock';
 
-export const ClientPage: FC = () => {
+export const ClientsPage: FC = () => {
   const [data, setData] = useState<Person[]>([]);
   const [opened, { open, close }] = useDisclosure(false);
 
