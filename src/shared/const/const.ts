@@ -14,6 +14,6 @@ export const roomTypeSelectItems: ComboboxItem[] = [
   { label: ERoomType.STANDARD, value: ERoomType.STANDARD },
 ];
 
-export const API_URL = 'http://localhost:8080';
+export const API_URL = 'http://rodionov.ru.fvds.ru:8080';
 
 export const COOKIE_KEY_ID = 'X-PetHotel-User-Id';

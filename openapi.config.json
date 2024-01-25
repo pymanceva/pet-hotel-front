@@ -1,0 +1,20 @@
+[
+  {
+    "input": "./src/shared/spec/pets.yml",
+    "output": "./generated",
+    "client": "xhr",
+    "exportCore": true,
+    "exportServices": true,
+    "exportModels": true,
+    "exportSchemas": true
+  },
+  {
+    "input": "./src/shared/spec/user.yml",
+    "output": "./generated",
+    "client": "xhr",
+    "exportCore": true,
+    "exportServices": true,
+    "exportModels": true,
+    "exportSchemas": true
+  }
+]

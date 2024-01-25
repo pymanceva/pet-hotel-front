@@ -13,16 +13,15 @@ import {
 import { Button, ButtonIcon } from '@/shared/components/Buttons';
 import { EditIcon } from '@/shared/ui/icons/EditIcon';
 import { TrashboxIcon } from '@/shared/ui/icons/TrashboxIcon';
-import { UserDto } from '../../../../generated/models/UserDto';
+import { IUserDto } from '../../../../generated/models/UserDto';
 
 import { useDeleteUser, useUpdateUser } from '@/pages/Employees/api/mutation';
 import { ButtonVariant } from '@/shared/components/Buttons/Button/lib/variantControl';
-import { UpdateUserDto } from '../../../../generated/models/UpdateUserDto';
+import { IUpdateUserDto } from '../../../../generated/models/UpdateUserDto';
 import { getFullName } from '../utils/getFullName';
 
-export const Employee: React.FC<UserDto> = ({
+export const Employee: React.FC<IUserDto> = ({
   firstName,
-
   lastName,
   middleName,
   role,
@@ -40,13 +39,13 @@ export const Employee: React.FC<UserDto> = ({
   const [openedEditModal, { open: openEditModal, close: closeEditModal }] =
     useDisclosure(false);
 
-  const form = useForm<UpdateUserDto>({
+  const form = useForm<IUpdateUserDto>({
     initialValues: {
       email,
       firstName,
       lastName,
       middleName,
-      role,
+      role: role as IUpdateUserDto.ERole,
     },
   });
   if (!id) {
@@ -76,7 +75,7 @@ export const Employee: React.FC<UserDto> = ({
         }}
       >
         <Text fw="bolder">{getFullName(firstName, lastName, middleName)}</Text>
-        <Text>{UpdateUserDto.role[role]}</Text>
+        <Text>{IUpdateUserDto.ERole[role]}</Text>
       </Flex>
       <Flex justify="space-between" mt="xl">
         <Button variant={ButtonVariant.primary} onClick={handleDeleteClick}>
@@ -88,17 +87,20 @@ export const Employee: React.FC<UserDto> = ({
       </Flex>
     </div>
   );
-  const handleSubmit = async (values: UpdateUserDto) => {
+  const handleSubmit = async (values: IUpdateUserDto) => {
     const roleForRequest = (
-      Object.keys(UpdateUserDto.role) as UserDto.role[]
-    ).find((key) => UpdateUserDto.role[key] === values.role);
+      Object.keys(IUpdateUserDto.ERole) as IUserDto.ERole[]
+    ).find((key) => IUpdateUserDto.ERole[key] === values.role);
 
     await updateUser({
       email: values.email,
       firstName: values.firstName,
       lastName: values.lastName || undefined,
       middleName: values.middleName || undefined,
-      role: roleForRequest as UserDto.role,
+      role:
+        roleForRequest !== undefined
+          ? (roleForRequest as IUpdateUserDto.ERole)
+          : undefined,
       id,
     });
     closeEditModal();
@@ -106,7 +108,21 @@ export const Employee: React.FC<UserDto> = ({
 
   const formForEditUser = (
     <form onSubmit={form.onSubmit(handleSubmit)}>
-      <TextInput label="ФИО" {...form.getInputProps('name')} radius="xl" />
+      <TextInput
+        label="Фамилия"
+        {...form.getInputProps('lastName')}
+        radius="xl"
+      />
+      <TextInput
+        label="Имя*"
+        {...form.getInputProps('firstName')}
+        radius="xl"
+      />
+      <TextInput
+        label="Отчество"
+        {...form.getInputProps('middleName')}
+        radius="xl"
+      />
       <TextInput
         label="Адрес электронной почты"
         {...form.getInputProps('email')}
@@ -114,8 +130,7 @@ export const Employee: React.FC<UserDto> = ({
       />
       <Select
         label="Должность"
-        data={Object.values(UpdateUserDto.role)}
-        // value={Object.values(UpdateUserDto.role)[0]}
+        data={Object.values(IUpdateUserDto.ERole)}
         {...form.getInputProps('role')}
         radius="xl"
       />
@@ -133,10 +148,10 @@ export const Employee: React.FC<UserDto> = ({
       <Group justify="space-between">
         <Group justify="space-between">
           <Title order={5} w="248px" fw={400}>
-            {`${firstName} ${middleName} ${lastName}`}
+            {getFullName(firstName, lastName, middleName)}
           </Title>
           <Title order={5} w="248px" fw={400}>
-            {UpdateUserDto.role[role]}
+            {IUpdateUserDto.ERole[role]}
           </Title>
         </Group>
         <Group justify="center">

@@ -1,4 +1,3 @@
-/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -7,26 +6,22 @@ import type { ApiRequestOptions } from './ApiRequestOptions';
 type Resolver<T> = (options: ApiRequestOptions) => Promise<T>;
 type Headers = Record<string, string>;
 
-export type OpenAPIConfig = {
+type Config = {
   BASE: string;
   VERSION: string;
   WITH_CREDENTIALS: boolean;
-  CREDENTIALS: 'include' | 'omit' | 'same-origin';
-  TOKEN?: string | Resolver<string> | undefined;
-  USERNAME?: string | Resolver<string> | undefined;
-  PASSWORD?: string | Resolver<string> | undefined;
-  HEADERS?: Headers | Resolver<Headers> | undefined;
-  ENCODE_PATH?: ((path: string) => string) | undefined;
+  TOKEN?: string | Resolver<string>;
+  USERNAME?: string | Resolver<string>;
+  PASSWORD?: string | Resolver<string>;
+  HEADERS?: Headers | Resolver<Headers>;
 };
 
-export const OpenAPI: OpenAPIConfig = {
+export const OpenAPI: Config = {
   BASE: 'http://rodionov.ru.fvds.ru:8080',
   VERSION: '1',
   WITH_CREDENTIALS: false,
-  CREDENTIALS: 'include',
   TOKEN: undefined,
   USERNAME: undefined,
   PASSWORD: undefined,
   HEADERS: undefined,
-  ENCODE_PATH: undefined,
 };

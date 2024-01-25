@@ -13,17 +13,17 @@ import { Button } from '@/shared/components/Buttons';
 
 import { PlusIcon } from '@/shared/ui/icons/PlusIcon';
 import { ButtonSize } from '@/shared/components/Buttons/Button/lib/sizeControl';
-import { UserDto } from '../../../../generated/models/UserDto';
+import { IUserDto } from '../../../../generated/models/UserDto';
 import { ButtonVariant } from '@/shared/components/Buttons/Button/lib/variantControl';
 import { useCreateUser } from '../api/mutation';
 import { EmployeeGrid } from '@/widgets/Grids';
 
 export const EmployeePage = () => {
   const [opened, { open, close }] = useDisclosure(false);
-  const form = useForm<UserDto & { confirmPassword: string }>({
+  const form = useForm<IUserDto & { confirmPassword: string }>({
     initialValues: {
       email: '',
-      role: UserDto.role.ROLE_USER,
+      role: IUserDto.ERole.ROLE_USER,
       firstName: '',
       isActive: true,
       lastName: '',
@@ -76,15 +76,15 @@ export const EmployeePage = () => {
     form.reset();
   };
 
-  const handleSubmit = async (values: UserDto) => {
-    const role = (Object.keys(UserDto.role) as UserDto.role[]).find(
-      (key) => UserDto.role[key] === values.role,
+  const handleSubmit = async (values: IUserDto) => {
+    const role = (Object.keys(IUserDto.ERole) as IUserDto.ERole[]).find(
+      (key) => IUserDto.ERole[key] === values.role,
     );
     const { email, firstName, isActive, lastName, middleName, password } =
       values;
     await mutateAsync({
       email,
-      role: role as UserDto.role,
+      role: role as IUserDto.ERole,
       firstName,
       isActive,
       lastName: lastName || undefined,
@@ -123,7 +123,7 @@ export const EmployeePage = () => {
         mt="lg"
       />
       <Select
-        data={Object.values(UserDto.role)}
+        data={Object.values(IUserDto.ERole)}
         {...form.getInputProps('role')}
         radius="xl"
         placeholder="Должность*"
