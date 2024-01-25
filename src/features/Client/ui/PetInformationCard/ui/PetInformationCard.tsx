@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Button, ActionIcon } from '@mantine/core';
+import { Flex, Text, ActionIcon } from '@mantine/core';
 import Card from '@/shared/components/Card/Card';
 import { Animal } from '@/pages/Client/model/types';
 import { AnimalInfo } from '@/widgets/Grids/ClientGrid/Client';
