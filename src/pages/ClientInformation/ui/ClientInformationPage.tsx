@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react';
 import { Flex, Text } from '@mantine/core';
-import { useParams } from 'react-router-dom';
 import { GridHeader } from '@/shared/components/Grid/ui/GridHeader';
 import { ClientInformationCard } from '@/features/Client';
 import { PetInformationCard } from '@/features/Client/ui/PetInformationCard/ui/PetInformationCard';
@@ -18,7 +17,6 @@ const styles: CSSProperties = {
   marginBottom: '40px',
 };
 export const ClientInformationPage: React.FC = () => {
-  const params = useParams();
   const client = {
     id: 104,
     surname: 'Петров',
@@ -38,11 +36,6 @@ export const ClientInformationPage: React.FC = () => {
     }),
   };
 
-  // Array.from<Animal>({ length: 3 }).fill({
-  //     name: 'Venus',
-  //     type: 'Dog',
-  //     subtype: 'Golden Retriever',
-  //   }),
   const mainContentForPet = (
     <Flex justify="space-between">
       {client.animals.length > 0 ? (

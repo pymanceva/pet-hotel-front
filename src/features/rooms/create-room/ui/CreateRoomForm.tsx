@@ -7,7 +7,7 @@ interface CreateRoomFormProps {
   onClose?: () => void;
 }
 
-const CreateRoomForm: FC<CreateRoomFormProps> = ({ onClose }) => {
+export const CreateRoomForm: FC<CreateRoomFormProps> = ({ onClose }) => {
   const { mutateAsync: handleRoomCreation } = useCreateRoom();
   const { form } = useRoomForm();
   const handleCreate = async () => {
@@ -24,5 +24,3 @@ const CreateRoomForm: FC<CreateRoomFormProps> = ({ onClose }) => {
     />
   );
 };
-
-export default CreateRoomForm;

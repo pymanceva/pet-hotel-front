@@ -29,7 +29,6 @@ export const ClientInformationCard: FC<ClientInformationCardProps> = ({
     source,
     surname,
     trustedMan,
-    id,
   } = client;
 
   const fullName = getFullName(name, middleName, surname);

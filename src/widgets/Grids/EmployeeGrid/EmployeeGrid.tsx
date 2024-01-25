@@ -4,7 +4,7 @@ import { GridHeader } from '@/shared/components/Grid/ui/GridHeader';
 import { useGetUsers } from '@/widgets/EmployeesGrid/model/api/queries';
 
 export const EmployeeGrid = () => {
-  const { data, isLoading } = useGetUsers();
+  const { data } = useGetUsers();
   return (
     <>
       <GridHeader firstColTitle="Имя" secondColTitle="Должность" />
