@@ -33,3 +33,20 @@ export interface IRoom {
   isAvailable: boolean;
   price: number;
 }
+
+export interface ICategory {
+  id: number;
+  name: string;
+  description?: string;
+}
+
+export interface IRequestForCategoryCreation {
+  name: string;
+  description?: string;
+}
+
+export interface IRequestForCategoryUpdate {
+  id: number;
+  name: string;
+  description?: string;
+}
