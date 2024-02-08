@@ -20,7 +20,7 @@ export type OpenAPIConfig = {
 };
 
 export const OpenAPI: OpenAPIConfig = {
-  BASE: 'http://rodionov.ru.fvds.ru:8080',
+  BASE: 'http://rodionov.ru.fvds.ru:436',
   VERSION: '1',
   WITH_CREDENTIALS: false,
   CREDENTIALS: 'include',
