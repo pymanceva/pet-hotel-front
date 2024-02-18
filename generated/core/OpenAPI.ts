@@ -7,21 +7,21 @@ type Resolver<T> = (options: ApiRequestOptions) => Promise<T>;
 type Headers = Record<string, string>;
 
 type Config = {
-  BASE: string;
-  VERSION: string;
-  WITH_CREDENTIALS: boolean;
-  TOKEN?: string | Resolver<string>;
-  USERNAME?: string | Resolver<string>;
-  PASSWORD?: string | Resolver<string>;
-  HEADERS?: Headers | Resolver<Headers>;
-};
+    BASE: string;
+    VERSION: string;
+    WITH_CREDENTIALS: boolean;
+    TOKEN?: string | Resolver<string>;
+    USERNAME?: string | Resolver<string>;
+    PASSWORD?: string | Resolver<string>;
+    HEADERS?: Headers | Resolver<Headers>;
+}
 
 export const OpenAPI: Config = {
-  BASE: 'http://rodionov.ru.fvds.ru:8080',
-  VERSION: '1',
-  WITH_CREDENTIALS: false,
-  TOKEN: undefined,
-  USERNAME: undefined,
-  PASSWORD: undefined,
-  HEADERS: undefined,
+    BASE: 'http://rodionov.ru.fvds.ru:8080',
+    VERSION: '1',
+    WITH_CREDENTIALS: false,
+    TOKEN: undefined,
+    USERNAME: undefined,
+    PASSWORD: undefined,
+    HEADERS: undefined,
 };

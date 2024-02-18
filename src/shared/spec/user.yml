@@ -4,7 +4,7 @@ info:
   description: Документация раздела по работе с пользователями
   version: v1
 servers:
-  - url: 'http://localhost:8080'
+  - url: 'http://rodionov.ru.fvds.ru:8080'
     description: Local server for develop
 tags:
   - description: API для работы с пользователями.

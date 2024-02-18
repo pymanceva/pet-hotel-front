@@ -4,6 +4,8 @@ import { UserControllerService } from '../../../../generated/services/UserContro
 import { IUserDto } from '../../../../generated/models/UserDto';
 import { EmployeeQueryKeys } from '@/widgets/EmployeesGrid/model/api/keys';
 import { IUpdateUserDto } from '../../../../generated/models/UpdateUserDto';
+import { callNotification } from '@/shared/helper/showNotification';
+import { getFullName } from '@/entities/employee/utils/getFullName';
 
 export const useCreateUser = () => {
   const queryClient = useQueryClient();
@@ -37,9 +39,23 @@ export const useUpdateUser = () => {
     mutationKey: [EmployeeMutationKeys.UPDATE_EMPLOYEE],
     mutationFn: (data: IUpdateUserDto & { id: number }) =>
       UserControllerService.updateUser(1, data.id!, data),
-    onSuccess: () => {
+    onSuccess: (d) => {
       queryClient.invalidateQueries({
         queryKey: [EmployeeQueryKeys.GET_ALL_EMPLOYEE],
+      });
+      callNotification({
+        message: `Данные пользователя ${d.firstName} ${d.lastName} успешно обновлены`,
+        title: 'Успех',
+      });
+    },
+    onError(error, variables) {
+      callNotification({
+        message: `Ошибка при обновлении данных пользователя ${getFullName(
+          variables?.firstName!,
+          variables?.lastName,
+          variables?.middleName,
+        )}`,
+        title: 'Ошибка',
       });
     },
   });

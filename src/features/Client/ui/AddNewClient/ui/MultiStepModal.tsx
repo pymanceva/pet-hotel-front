@@ -86,6 +86,11 @@ export const MultiStepModal: React.FC<MultiStepModalProps> = ({
                 ) : (
                   <TextInput
                     placeholder={label}
+                    styles={{
+                      error: {
+                        textAlign: 'center',
+                      },
+                    }}
                     radius="xl"
                     mb="24px"
                     {...form.getInputProps(name)}

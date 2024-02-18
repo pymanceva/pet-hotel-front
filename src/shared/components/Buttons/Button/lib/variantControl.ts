@@ -1,6 +1,7 @@
 export enum ButtonVariant {
   primary = 'primary',
   secondary = 'secondary',
+  ghost = 'ghost',
 }
 
 export const variantControl = (
@@ -15,6 +16,10 @@ export const variantControl = (
     case ButtonVariant.secondary:
       return {
         root: styles.buttonSecondary,
+      };
+    case ButtonVariant.ghost:
+      return {
+        root: styles.buttonGhost,
       };
     default:
       return {

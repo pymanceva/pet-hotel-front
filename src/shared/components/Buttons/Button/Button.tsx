@@ -10,7 +10,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   variant?: ButtonVariant;
   btnStyles?: CSSProperties;
-  icon?: React.ReactNode;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -21,7 +22,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size = ButtonSize.medium,
       variant = ButtonVariant.primary,
       btnStyles,
-      icon,
+      leftIcon,
+      rightIcon,
+      color,
       ...props
     },
     ref,
@@ -29,11 +32,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <MTButton
         ref={ref}
-        leftSection={icon || undefined}
+        leftSection={leftIcon || undefined}
+        rightSection={rightIcon || undefined}
         style={{ ...sizeControl(size), ...btnStyles }}
         classNames={variantControl(variant, styles)}
         radius={26}
         onClick={handleClick}
+        color={color}
         {...props}
       >
         {children}

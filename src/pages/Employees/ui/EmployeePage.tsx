@@ -166,7 +166,11 @@ export const EmployeePage = () => {
         <Title order={2} fw={800} style={{ fontSize: '36px' }}>
           Команда
         </Title>
-        <Button handleClick={open} icon={<PlusIcon />} size={ButtonSize.small}>
+        <Button
+          handleClick={open}
+          leftIcon={<PlusIcon />}
+          size={ButtonSize.small}
+        >
           Добавить сотрудника
         </Button>
       </Flex>
