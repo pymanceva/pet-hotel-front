@@ -7,6 +7,7 @@ import { AuthorizationPage } from './Authorization';
 import { EmployeePage } from './Employees';
 import { ClientsPage } from './Client';
 import { ClientInformationPage } from './ClientInformation';
+import { DogCreate } from './DogCreate/ui/DogCreate';
 
 export const routes: RouteObject[] = [
   {
@@ -47,6 +48,7 @@ export const routes: RouteObject[] = [
       },
       { path: 'client', element: <ClientsPage /> },
       { path: 'client/:clientId', element: <ClientInformationPage /> },
+      { path: 'create/dog', element: <DogCreate /> },
       {
         path: '*',
         element: <Navigate to="/" />,

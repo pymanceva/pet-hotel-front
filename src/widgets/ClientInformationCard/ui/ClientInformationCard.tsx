@@ -4,7 +4,7 @@ import { Flex, Text } from '@mantine/core';
 import { TClientInformation } from '@/pages/ClientInformation/model/types';
 import { getFullName } from '@/entities/employee/utils/getFullName';
 import { RatingIcon } from '@/shared/ui/icons/RatingIcon';
-import { Field } from './components/Field';
+import { Field } from '../../../shared/components/Field/Field';
 import { formatPhoneNumber } from '@/shared/helper/formatPhoneNumber';
 import { Button } from '@/shared/components/Buttons';
 import { ButtonVariant } from '@/shared/components/Buttons/Button/lib/variantControl';
@@ -80,7 +80,7 @@ export const ClientInformationCard: FC<ClientInformationCardProps> = ({
       <Button
         variant={ButtonVariant.secondary}
         size={ButtonSize.small}
-        icon={<EditIconForButton />}
+        rightIcon={<EditIconForButton />}
       >
         <div>
           <Text fw="700" fz="12px" lh="18px">

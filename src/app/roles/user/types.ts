@@ -1,10 +1,10 @@
-import { UserDto } from '../../../../generated/models/UserDto';
+import { IUserDto } from '../../../../generated/models/UserDto';
 
 export interface IUser {
   id: number;
   name: string;
   email: string;
-  role: UserDto.role;
+  role: IUserDto.ERole;
 }
 
 export interface IInitialState {

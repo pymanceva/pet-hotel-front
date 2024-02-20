@@ -1,9 +1,8 @@
-/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 
-export type UpdateUserDto = {
+export interface IUpdateUserDto {
     /**
      * Фамилия пользователя
      */
@@ -27,15 +26,15 @@ export type UpdateUserDto = {
     /**
      * Роль (определяет уровень доступа)
      */
-    role?: UpdateUserDto.role;
-};
+    role?: IUpdateUserDto.ERole;
+}
 
-export namespace UpdateUserDto {
+export namespace IUpdateUserDto {
 
     /**
      * Роль (определяет уровень доступа)
      */
-    export enum role {
+    export enum ERole {
         ROLE_BOSS = 'ROLE_BOSS',
         ROLE_ADMIN = 'ROLE_ADMIN',
         ROLE_USER = 'ROLE_USER',

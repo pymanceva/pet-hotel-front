@@ -5,7 +5,7 @@ import { Header } from '@/widgets/Header';
 
 const Layout: FC = () => {
   return (
-    <AppShell header={{ height: 92 }} padding="md" withBorder={false}>
+    <AppShell header={{ height: 92 }} withBorder={false}>
       <AppShell.Header>
         <Header />
       </AppShell.Header>

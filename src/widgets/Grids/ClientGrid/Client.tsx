@@ -3,7 +3,7 @@ import { Flex, Text } from '@mantine/core';
 import Card from '@/shared/components/Card/Card';
 import { formatPhoneNumber } from '@/shared/helper/formatPhoneNumber';
 import { Animal, Person } from '@/pages/Client/model/types';
-import { PetInformationCard } from '@/features/Client/ui/PetInformationCard/ui/PetInformationCard';
+import { PetInformationCard } from '@/widgets/PetInformationCard/ui/PetInformationCard';
 
 interface ClientProps {
   client: Person;

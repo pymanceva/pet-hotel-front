@@ -1,5 +1,5 @@
-import { ERoomType, IRequestForRoomCreation } from '@/shared/types/request';
 import { useForm } from '@mantine/form';
+import { ERoomType, IRequestForRoomCreation } from '@/shared/types/request';
 
 export const useRoomForm = () => {
   const form = useForm<IRequestForRoomCreation>({

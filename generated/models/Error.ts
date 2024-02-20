@@ -1,19 +1,18 @@
-/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 
-export type Error = {
+export interface IError {
     errors?: Array<string>;
     message?: string;
     reason?: string;
-    httpStatus?: Error.httpStatus;
+    httpStatus?: IError.EHttpStatus;
     timeStamp?: string;
-};
+}
 
-export namespace Error {
+export namespace IError {
 
-    export enum httpStatus {
+    export enum EHttpStatus {
         _100_CONTINUE = '100 CONTINUE',
         _101_SWITCHING_PROTOCOLS = '101 SWITCHING_PROTOCOLS',
         _102_PROCESSING = '102 PROCESSING',

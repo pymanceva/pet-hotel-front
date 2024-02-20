@@ -10,7 +10,7 @@ export const EmployeeGrid = () => {
       <GridHeader firstColTitle="Имя" secondColTitle="Должность" />
       <Grid>
         {data?.map((employee) => (
-          <Employee {...employee} />
+          <Employee key={employee.id} {...employee} />
         ))}
       </Grid>
     </>

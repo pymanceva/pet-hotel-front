@@ -1,9 +1,8 @@
-/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 
-export type UserDto = {
+export interface IUserDto {
     id?: number;
     /**
      * Фамилия пользователя
@@ -28,19 +27,19 @@ export type UserDto = {
     /**
      * Роль (определяет уровень доступа)
      */
-    role: UserDto.role;
+    role: IUserDto.ERole;
     /**
      * Состояние учётной записи (активна/заблокирована)
      */
     isActive: boolean;
-};
+}
 
-export namespace UserDto {
+export namespace IUserDto {
 
     /**
      * Роль (определяет уровень доступа)
      */
-    export enum role {
+    export enum ERole {
         ROLE_BOSS = 'ROLE_BOSS',
         ROLE_ADMIN = 'ROLE_ADMIN',
         ROLE_USER = 'ROLE_USER',
