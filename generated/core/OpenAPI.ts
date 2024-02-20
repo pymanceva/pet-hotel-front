@@ -25,3 +25,4 @@ export const OpenAPI: Config = {
     PASSWORD: undefined,
     HEADERS: undefined,
 };
+

@@ -1,3 +1,12 @@
 {
-  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
+  "rewrites": [
+    { "source": "^/authorization", "destination": "/authorization" },
+    { "source": "^/main", "destination": "/" },
+    { "source": "^/employee", "destination": "/employee" },
+    { "source": "^/room/:id", "destination": "/room/:id" },
+    { "source": "^/rooms", "destination": "/rooms" },
+    { "source": "^/client", "destination": "/client" },
+    { "source": "^/client/:clientId", "destination": "/client/:clientId" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
