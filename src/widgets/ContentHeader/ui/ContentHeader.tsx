@@ -35,7 +35,7 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({
       </Title>
       <Button
         handleClick={handleClick}
-        icon={<PlusIcon color={colorIcon} />}
+        rightIcon={<PlusIcon color={colorIcon} />}
         size={ButtonSize.small}
         variant={buttonVariant}
       >

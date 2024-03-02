@@ -48,7 +48,7 @@ export const useUpdateUser = () => {
         title: 'Успех',
       });
     },
-    onError(error, variables) {
+    onError(_, variables) {
       callNotification({
         message: `Ошибка при обновлении данных пользователя ${getFullName(
           variables?.firstName!,

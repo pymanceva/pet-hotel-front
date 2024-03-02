@@ -1,4 +1,4 @@
-import { Checkbox, Flex, Input, Text } from '@mantine/core';
+import { Checkbox, Flex, Input } from '@mantine/core';
 import { FC, useCallback, useState } from 'react';
 import { useNewPetFormContext } from '../../config/form-context';
 import { Title } from '@/shared/ui/Title';
