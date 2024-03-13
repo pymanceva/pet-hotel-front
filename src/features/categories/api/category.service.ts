@@ -1,10 +1,6 @@
 import { HTTPError } from 'ky';
 import { api } from '@/shared/api/api.service';
-import {
-  ICategory,
-  IRequestForCategoryCreation,
-  IRequestForRoomCreation,
-} from '@/shared/types/request';
+import { ICategory, IRequestForCategoryCreation } from '@/shared/types/request';
 
 export default class CategoryService {
   static async getAllCategoriess() {
@@ -27,20 +23,11 @@ export default class CategoryService {
     }
   }
 
-  static async postRoom(data: IRequestForRoomCreation) {
-    try {
-      const response = await api.post('rooms', { json: data }).json();
-      return response;
-    } catch (err) {
-      throw new Error('Failed to post room!');
-    }
-  }
-
-  static async updateRoom(data: IRequestForRoomCreation) {
+  static async updateCategory(data: IRequestForCategoryCreation) {
     try {
       const response = await api
-        .patch(`rooms/${data.id}`, { json: data })
-        .json<IRequestForRoomCreation>();
+        .patch(`categories/${data.id}`, { json: data })
+        .json<IRequestForCategoryCreation>();
       return response;
     } catch (err) {
       if (err instanceof HTTPError) {
@@ -51,9 +38,10 @@ export default class CategoryService {
     }
   }
 
-  static async deleteRoom(id?: string) {
+  static async deleteCategory(id?: number) {
     try {
-      await api.delete(`rooms/${id}`);
+      const response = await api.delete(`categories/${id}`).json();
+      return response;
     } catch (err) {
       if (err instanceof HTTPError) {
         throw new Error(err.message);

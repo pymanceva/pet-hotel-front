@@ -1,11 +1,13 @@
 import { FC, useState } from 'react';
-import { Button, Flex, Space, TextInput } from '@mantine/core';
+import { Flex, Space, TextInput } from '@mantine/core';
 import { UseFormReturnType } from '@mantine/form';
 import {
   IRequestForCategoryCreation,
   IRequestForCategoryUpdate,
 } from '@/shared/types/request';
 import CategoryDrawer from './Drawer';
+import { Button } from '@/shared/components/Buttons';
+import { ButtonVariant } from '@/shared/components/Buttons/Button/lib/variantControl';
 
 interface ICategoryForm {
   onClose?: () => void;
@@ -47,14 +49,17 @@ export const CategoryForm: FC<ICategoryForm> = ({
       <Space h="10" />
       <TextInput
         placeholder="Введите описание..."
-        {...form.getInputProps('price')}
+        {...form.getInputProps('description')}
       />
       <Space h="10" />
       <Flex justify="space-between">
-        <Button color="red" onClick={handleCancelButtonClick}>
+        <Button type="submit">{btnText}</Button>
+        <Button
+          variant={ButtonVariant.secondary}
+          onClick={handleCancelButtonClick}
+        >
           Отмена
         </Button>
-        <Button type="submit">{btnText}</Button>
       </Flex>
       <CategoryDrawer
         isDrawerOpened={isDrawerOpened}

@@ -5,8 +5,21 @@ import { EditIcon } from '@/shared/ui/icons/EditIcon';
 import { TrashboxIcon } from '@/shared/ui/icons/TrashboxIcon';
 import Caption from '@/shared/components/Typography/Caption/Caption';
 import Description from '@/shared/components/Typography/Description/Description';
+import { ICategory } from '../types/ICategory';
 
-const CategoryItem = () => {
+interface ICategoryProps {
+  id?: number;
+  name: string;
+  description: string;
+  handleDelete: (id: number) => void;
+}
+
+const CategoryItem: React.FC<ICategoryProps> = ({
+  name,
+  description,
+  handleDelete,
+  id,
+}: ICategory) => {
   return (
     <Flex
       direction="column"
@@ -20,20 +33,21 @@ const CategoryItem = () => {
       }}
     >
       <Caption>Категория</Caption>
-      <Description>Стандарт</Description>
+      <Description>{name}</Description>
       <Popover width={200} position="bottom" shadow="md">
         <Popover.Target>
           <Caption>Описание</Caption>
         </Popover.Target>
         <Popover.Dropdown style={{ position: 'absolute', bottom: '0' }}>
-          <Text size="xs">
-            This is uncontrolled popover, it is opened when button is clicked
-          </Text>
+          <Text size="xs">{description}</Text>
         </Popover.Dropdown>
       </Popover>
       <Flex display="flex" gap={12} justify="end">
         <ButtonIcon Icon={<EditIcon />} handleClick={() => {}} />
-        <ButtonIcon Icon={<TrashboxIcon />} handleClick={() => {}} />
+        <ButtonIcon
+          Icon={<TrashboxIcon />}
+          handleClick={() => handleDelete(id)}
+        />
       </Flex>
     </Flex>
   );
