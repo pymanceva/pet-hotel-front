@@ -23,10 +23,10 @@ export default class CategoryService {
     }
   }
 
-  static async updateCategory(data: IRequestForCategoryCreation) {
+  static async updateCategory(id: number, data?: IRequestForCategoryCreation) {
     try {
       const response = await api
-        .patch(`categories/${data.id}`, { json: data })
+        .patch(`categories/${id}`, { json: data })
         .json<IRequestForCategoryCreation>();
       return response;
     } catch (err) {

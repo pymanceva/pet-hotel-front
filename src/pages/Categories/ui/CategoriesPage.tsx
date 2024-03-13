@@ -13,7 +13,14 @@ import UpdateCategoryForm from '@/features/categories/update-category/ui/UpdateC
 const CategoriesPage = () => {
   const { mutateAsync: deleteCategory } = useDeleteCategory();
   const { data, isLoading } = useGetAllCategories();
-  const [opened, { open, close }] = useDisclosure(false);
+
+  const [
+    openedCreateModal,
+    { open: openCreateModal, close: closeCreateModal },
+  ] = useDisclosure(false);
+
+  const [openedEditModal, { open: openEditModal, close: closeEditModal }] =
+    useDisclosure(false);
 
   const [
     openedDeleteModal,
@@ -35,25 +42,25 @@ const CategoriesPage = () => {
   return (
     <Group px="md" w="100%">
       <ContentHeader
-        handleClick={open}
+        handleClick={openCreateModal}
         contentTitle="Категории"
         actionText="Создать новую категорию"
       />
       <Modal
-        onClose={close}
-        opened={opened}
+        onClose={closeCreateModal}
+        opened={openedCreateModal}
         title="Создать категорию"
         withCloseButton={false}
       >
-        <CreateCategoryForm onClose={close} data={{ ...data }} />
+        <CreateCategoryForm onClose={closeCreateModal} data={{ ...data }} />
       </Modal>
       <Modal
-        onClose={close}
-        opened={opened}
+        onClose={closeEditModal}
+        opened={openedEditModal}
         title="Редактировать категорию"
         withCloseButton={false}
       >
-        <UpdateCategoryForm onClose={close} data={{ ...data }} />
+        <UpdateCategoryForm onClose={closeEditModal} data={{ ...data }} />
       </Modal>
       <Modal
         onClose={closeDeleteModal}
@@ -67,6 +74,7 @@ const CategoriesPage = () => {
         </Flex>
       </Modal>
       <CategoryGrid
+        handleUpdateCategory={openEditModal}
         data={data as ICategory[]}
         handleDeleteCategory={handleDeleteCategory}
       />

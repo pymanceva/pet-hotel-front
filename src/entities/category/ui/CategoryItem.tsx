@@ -18,6 +18,7 @@ const CategoryItem: React.FC<ICategoryProps> = ({
   name,
   description,
   handleDelete,
+  handleUpdate,
   id,
 }: ICategory) => {
   return (
@@ -43,7 +44,7 @@ const CategoryItem: React.FC<ICategoryProps> = ({
         </Popover.Dropdown>
       </Popover>
       <Flex display="flex" gap={12} justify="end">
-        <ButtonIcon Icon={<EditIcon />} handleClick={() => {}} />
+        <ButtonIcon Icon={<EditIcon />} handleClick={() => handleUpdate(id)} />
         <ButtonIcon
           Icon={<TrashboxIcon />}
           handleClick={() => handleDelete(id)}

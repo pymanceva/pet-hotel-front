@@ -8,11 +8,13 @@ const gridColStyle = {};
 interface ICategoryGridProps {
   data: ICategory[];
   handleDeleteCategory: (id: number) => void;
+  handleUpdateCategory: (id: number) => void;
 }
 
 const CategoryGrid: React.FC<ICategoryGridProps> = ({
   data,
   handleDeleteCategory,
+  handleUpdateCategory,
 }) => {
   return (
     <Grid gutter={20} w="100%" m={10} mih={300} display="flex">
@@ -24,6 +26,7 @@ const CategoryGrid: React.FC<ICategoryGridProps> = ({
               description={category.description || ''}
               name={category.name}
               handleDelete={handleDeleteCategory}
+              handleUpdate={handleUpdateCategory}
             />
           </Grid.Col>
         ))}
