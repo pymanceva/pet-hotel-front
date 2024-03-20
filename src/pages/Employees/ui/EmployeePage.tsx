@@ -17,6 +17,7 @@ import { UserDto } from '../../../../generated/models/UserDto';
 import { ButtonVariant } from '@/shared/components/Buttons/Button/lib/variantControl';
 import { useCreateUser } from '../api/mutation';
 import { EmployeeGrid } from '@/widgets/Grids';
+import NewInput from '@/shared/components/NewInput/ui/NewInput';
 
 export const EmployeePage = () => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -166,6 +167,7 @@ export const EmployeePage = () => {
         <Title order={2} fw={800} style={{ fontSize: '36px' }}>
           Команда
         </Title>
+        <NewInput placeholder="Поиск сотрудников" />
         <Button handleClick={open} icon={<PlusIcon />} size={ButtonSize.small}>
           Добавить сотрудника
         </Button>
